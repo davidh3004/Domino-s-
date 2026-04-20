@@ -1,0 +1,73 @@
+{
+  "nav": {
+    "customize": "Personalizar",
+    "gallery": "Galería",
+    "contact": "Contacto",
+    "logo": "DominoTables"
+  },
+  "hero": {
+    "badge": "Artesanal en República Dominicana",
+    "title": "La Mesa de Dominó",
+    "titleAccent": "Perfecta",
+    "subtitle": "Mesas de dominó artesanales de primera calidad, completamente personalizadas a tu estilo. Elige el fieltro, la madera y los accesorios — vélo en 3D antes de ordenar.",
+    "cta": "Personaliza Tu Mesa",
+    "scroll": "Desplázate para explorar"
+  },
+  "customizer": {
+    "title": "Diseña Tu Mesa",
+    "subtitle": "Rota el modelo 3D para ver cada ángulo. Personaliza cada detalle en tiempo real.",
+    "felt": "Color del Fieltro",
+    "wood": "Acabado de Madera",
+    "legs": "Color de las Patas",
+    "accessories": "Accesorios",
+    "cupHolders": "Porta-Vasos",
+    "leds": "Luces LED",
+    "ledColor": "Color LED",
+    "decorativeSurface": "Superficie Decorativa",
+    "summary": "Tu Configuración",
+    "contactBtn": "Ordenar Esta Mesa",
+    "resetBtn": "Restablecer",
+    "rotate": "Arrastra para rotar · Scroll para zoom",
+    "woodOptions": {
+      "oak": "Roble",
+      "walnut": "Nogal",
+      "mahogany": "Caoba",
+      "black": "Negro Pintado"
+    },
+    "feltOptions": {
+      "green": "Verde",
+      "blue": "Azul",
+      "red": "Rojo",
+      "burgundy": "Burdeos",
+      "black": "Negro",
+      "gray": "Gris"
+    },
+    "legOptions": {
+      "match-wood": "Igual a la Madera",
+      "black": "Negro",
+      "white": "Blanco",
+      "chrome": "Cromo"
+    }
+  },
+  "gallery": {
+    "title": "Mesas Terminadas",
+    "subtitle": "Cada mesa es hecha a mano con materiales de primera calidad. Aquí algunos de nuestros trabajos."
+  },
+  "contact": {
+    "title": "¿Listo para Ordenar?",
+    "subtitle": "Envíanos tu configuración y te contactamos con un presupuesto en menos de 24 horas.",
+    "whatsapp": "Chatear por WhatsApp",
+    "email": "Enviar Email",
+    "form": {
+      "name": "Tu Nombre",
+      "phone": "Teléfono / WhatsApp",
+      "message": "Mensaje",
+      "messagePlaceholder": "Cuéntanos sobre tu pedido...",
+      "send": "Enviar Mensaje"
+    }
+  },
+  "footer": {
+    "tagline": "Mesas de dominó artesanales de primera calidad.",
+    "rights": "Todos los derechos reservados."
+  }
+}

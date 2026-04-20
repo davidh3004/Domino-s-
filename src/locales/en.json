@@ -1,0 +1,73 @@
+{
+  "nav": {
+    "customize": "Customize",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "logo": "DominoTables"
+  },
+  "hero": {
+    "badge": "Handcrafted in Dominican Republic",
+    "title": "The Perfect",
+    "titleAccent": "Domino Table",
+    "subtitle": "Handcrafted premium domino tables, fully customized to your style. Choose your felt, wood, and accessories — see it in 3D before you order.",
+    "cta": "Customize Your Table",
+    "scroll": "Scroll to explore"
+  },
+  "customizer": {
+    "title": "Design Your Table",
+    "subtitle": "Rotate the 3D model to see every angle. Customize each detail in real time.",
+    "felt": "Felt Color",
+    "wood": "Wood Finish",
+    "legs": "Leg Color",
+    "accessories": "Accessories",
+    "cupHolders": "Cup Holders",
+    "leds": "LED Lights",
+    "ledColor": "LED Color",
+    "decorativeSurface": "Decorative Surface",
+    "summary": "Your Configuration",
+    "contactBtn": "Order This Table",
+    "resetBtn": "Reset",
+    "rotate": "Drag to rotate · Scroll to zoom",
+    "woodOptions": {
+      "oak": "Oak",
+      "walnut": "Walnut",
+      "mahogany": "Mahogany",
+      "black": "Painted Black"
+    },
+    "feltOptions": {
+      "green": "Green",
+      "blue": "Blue",
+      "red": "Red",
+      "burgundy": "Burgundy",
+      "black": "Black",
+      "gray": "Gray"
+    },
+    "legOptions": {
+      "match-wood": "Match Wood",
+      "black": "Black",
+      "white": "White",
+      "chrome": "Chrome"
+    }
+  },
+  "gallery": {
+    "title": "Finished Tables",
+    "subtitle": "Every table is handcrafted with premium materials. Here are some of our completed builds."
+  },
+  "contact": {
+    "title": "Ready to Order?",
+    "subtitle": "Send us your configuration and we'll get back to you with a quote within 24 hours.",
+    "whatsapp": "Chat on WhatsApp",
+    "email": "Send Email",
+    "form": {
+      "name": "Your Name",
+      "phone": "Phone / WhatsApp",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your order...",
+      "send": "Send Message"
+    }
+  },
+  "footer": {
+    "tagline": "Premium handcrafted domino tables.",
+    "rights": "All rights reserved."
+  }
+}
