@@ -6,6 +6,7 @@ export interface TableConfig {
   felt: FeltColor
   wood: WoodPreset
   legColor: LegColor
+  logoUrl: string | null
   accessories: {
     cupHolders: boolean
     leds: boolean
@@ -41,6 +42,7 @@ export const DEFAULT_CONFIG: TableConfig = {
   felt: 'green',
   wood: 'walnut',
   legColor: 'match-wood',
+  logoUrl: null,
   accessories: {
     cupHolders: true,
     leds: false,

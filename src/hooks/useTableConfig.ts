@@ -8,6 +8,7 @@ interface TableConfigStore {
   setFelt: (felt: TableConfig['felt']) => void
   setWood: (wood: TableConfig['wood']) => void
   setLegColor: (legColor: TableConfig['legColor']) => void
+  setLogoUrl: (url: string | null) => void
   setAccessory: <K extends keyof TableConfig['accessories']>(
     key: K,
     value: TableConfig['accessories'][K]
@@ -20,6 +21,7 @@ export const useTableConfig = create<TableConfigStore>((set) => ({
   setFelt: (felt) => set((s) => ({ config: { ...s.config, felt } })),
   setWood: (wood) => set((s) => ({ config: { ...s.config, wood } })),
   setLegColor: (legColor) => set((s) => ({ config: { ...s.config, legColor } })),
+  setLogoUrl: (logoUrl) => set((s) => ({ config: { ...s.config, logoUrl } })),
   setAccessory: (key, value) =>
     set((s) => ({
       config: {
