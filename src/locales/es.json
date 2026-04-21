@@ -8,14 +8,71 @@
   "hero": {
     "badge": "Artesanal en República Dominicana",
     "title": "La Mesa de Dominó",
-    "titleAccent": "Perfecta",
-    "subtitle": "Mesas de dominó artesanales de primera calidad, completamente personalizadas a tu estilo. Elige el fieltro, la madera y los accesorios — vélo en 3D antes de ordenar.",
-    "cta": "Personaliza Tu Mesa",
+    "titleAccent": "Hecha para Ti",
+    "subtitle": "Mesas de dominó artesanales de primera calidad, completamente personalizadas a tu estilo. Elige los colores, la madera y los accesorios — véla en 3D antes de ordenar.",
+    "cta": "Diseña Tu Mesa",
+    "ctaSecondary": "Ver la Galería",
     "scroll": "Desplázate para explorar"
   },
+  "howItWorks": {
+    "title": "Cómo Funciona",
+    "subtitle": "Desde tu visión hasta tu puerta en tres sencillos pasos.",
+    "step1Number": "01",
+    "step1Title": "Diseña Online",
+    "step1Desc": "Usa nuestro configurador 3D interactivo para elegir el color del fieltro, el acabado de la madera, el estilo de las patas y los accesorios. Sube tu propio logo si deseas.",
+    "step2Number": "02",
+    "step2Title": "Confirmamos",
+    "step2Desc": "Revisamos tu pedido y te contactamos en menos de 24 horas por WhatsApp o email para confirmar los detalles y enviarte tu cotización.",
+    "step3Number": "03",
+    "step3Title": "Fabricamos y Entregamos",
+    "step3Desc": "Nuestros artesanos fabrican tu mesa con las especificaciones exactas. Una vez lista, la entregamos directamente a tu puerta.",
+    "cta": "Empezar a Diseñar"
+  },
+  "whyUs": {
+    "title": "Por Qué Elegirnos",
+    "subtitle": "Cada mesa es una obra de arte. Esto es lo que nos diferencia.",
+    "card1Title": "100% Artesanal",
+    "card1Desc": "Cada mesa es construida a mano, una a la vez. Sin producción en masa — solo artesanía de calidad.",
+    "card2Title": "Totalmente Personalizable",
+    "card2Desc": "Elige cada detalle: color del fieltro, tipo de madera, acabado de las patas, porta-vasos, luces LED y tu propio logo.",
+    "card3Title": "Hecho en República Dominicana",
+    "card3Desc": "Construido con orgullo con artesanía dominicana, usando materiales de calidad nacionales e internacionales.",
+    "card4Title": "Entrega a Domicilio",
+    "card4Desc": "Nos encargamos de todo — tu mesa llega empacada con seguridad a cualquier lugar del país."
+  },
+  "testimonials": {
+    "title": "Lo Que Dicen Nuestros Clientes",
+    "subtitle": "Historias reales de entusiastas del dominó en todo el país.",
+    "t1Quote": "La calidad no tiene igual. Mi mesa llegó perfectamente terminada y el fieltro verde es exactamente lo que quería. A toda mi familia le encanta.",
+    "t1Name": "Carlos M.",
+    "t1Location": "Santo Domingo",
+    "t2Quote": "Agregué el logo de mi negocio a la superficie y quedó increíble. Muy profesional, excelente comunicación en todo momento.",
+    "t2Name": "María L.",
+    "t2Location": "Santiago",
+    "t3Quote": "Pedí madera de nogal con patas negras — parece algo de una tienda de lujo. Valió cada peso.",
+    "t3Name": "Roberto P.",
+    "t3Location": "La Romana"
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Todo lo que necesitas saber antes de ordenar.",
+    "q1": "¿De qué materiales está hecha la mesa?",
+    "a1": "Usamos madera sólida (roble, nogal o caoba) para el marco y las patas, y fieltro de billar de alta calidad para la superficie de juego. Todos los materiales son seleccionados por su durabilidad y estética.",
+    "q2": "¿Cuánto tiempo tarda en fabricarse?",
+    "a2": "Cada mesa tarda aproximadamente 7 a 14 días hábiles en completarse, dependiendo de las opciones de personalización seleccionadas.",
+    "q3": "¿Entregan a todo el país?",
+    "a3": "¡Sí! Hacemos entregas a nivel nacional. Los costos y tiempos de envío varían según la ubicación — los confirmamos cuando te contactamos después de tu pedido.",
+    "q4": "¿Puedo agregar mi propio logo o diseño a la superficie?",
+    "a4": "Por supuesto. Puedes subir cualquier imagen (PNG, JPG o SVG con fondo transparente) directamente en el configurador 3D, y se imprimirá o aplicará a la superficie del fieltro.",
+    "q5": "¿Qué métodos de pago aceptan?",
+    "a5": "Aceptamos transferencias bancarias, efectivo contra entrega y las principales tarjetas de crédito/débito. Se requiere el pago total o un depósito del 50% para comenzar la producción.",
+    "q6": "¿Las mesas tienen garantía?",
+    "a6": "Sí — todas las mesas vienen con una garantía de 1 año que cubre defectos de fabricación en el marco y los materiales."
+  },
   "customizer": {
+    "back": "Volver al inicio",
     "title": "Diseña Tu Mesa",
-    "subtitle": "Rota el modelo 3D para ver cada ángulo. Personaliza cada detalle en tiempo real.",
+    "subtitle": "Rota el modelo 3D para ver cada ángulo. Cada cambio se actualiza en tiempo real.",
     "felt": "Color del Fieltro",
     "wood": "Acabado de Madera",
     "legs": "Color de las Patas",
@@ -57,7 +114,8 @@
   },
   "gallery": {
     "title": "Mesas Terminadas",
-    "subtitle": "Cada mesa es hecha a mano con materiales de primera calidad. Aquí algunos de nuestros trabajos."
+    "subtitle": "Cada mesa es hecha a mano con materiales de primera calidad. Aquí algunos de nuestros trabajos.",
+    "cta": "Diseñar una Mesa Así"
   },
   "contact": {
     "title": "¿Listo para Ordenar?",
@@ -74,6 +132,7 @@
   },
   "footer": {
     "tagline": "Mesas de dominó artesanales de primera calidad.",
-    "rights": "Todos los derechos reservados."
+    "rights": "Todos los derechos reservados.",
+    "links": "Enlaces Rápidos"
   }
 }

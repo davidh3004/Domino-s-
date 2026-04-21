@@ -1,6 +1,7 @@
 'use client'
 
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
+import { useRouter } from 'next/navigation'
 
 const GALLERY_ITEMS = [
   { bg: 'from-amber-900/40 to-amber-800/20', felt: '#2D6A4F', wood: '#5C3A1E', label: 'Walnut + Green' },
@@ -53,9 +54,11 @@ function TablePreview({ felt, wood, bg, label }: (typeof GALLERY_ITEMS)[0]) {
 
 export default function Gallery() {
   const t = useTranslations('gallery')
+  const locale = useLocale()
+  const router = useRouter()
 
   return (
-    <section id="gallery" className="py-20 px-4 bg-zinc-900">
+    <section id="gallery" className="py-24 px-4 bg-zinc-900">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-3">
@@ -70,6 +73,18 @@ export default function Gallery() {
           {GALLERY_ITEMS.map((item) => (
             <TablePreview key={item.label} {...item} />
           ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <button
+            onClick={() => router.push(`/${locale}/customize`)}
+            className="inline-flex items-center gap-2 border border-zinc-600 hover:border-brand-gold text-zinc-300 hover:text-brand-gold font-medium px-7 py-3.5 rounded-xl transition-all duration-200 text-sm"
+          >
+            {t('cta')}
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </button>
         </div>
       </div>
     </section>

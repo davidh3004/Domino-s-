@@ -7,15 +7,72 @@
   },
   "hero": {
     "badge": "Handcrafted in Dominican Republic",
-    "title": "The Perfect",
-    "titleAccent": "Domino Table",
-    "subtitle": "Handcrafted premium domino tables, fully customized to your style. Choose your felt, wood, and accessories — see it in 3D before you order.",
-    "cta": "Customize Your Table",
+    "title": "The Domino Table",
+    "titleAccent": "Built for You",
+    "subtitle": "Premium handcrafted domino tables, fully customized to your style. Choose your colors, wood finish, and accessories — see it in 3D before you order.",
+    "cta": "Design Your Table",
+    "ctaSecondary": "See the Gallery",
     "scroll": "Scroll to explore"
   },
+  "howItWorks": {
+    "title": "How It Works",
+    "subtitle": "From your vision to your doorstep in three simple steps.",
+    "step1Number": "01",
+    "step1Title": "Design Online",
+    "step1Desc": "Use our interactive 3D configurator to choose your felt color, wood finish, leg style, and accessories. Upload your own logo if you want.",
+    "step2Number": "02",
+    "step2Title": "We Confirm",
+    "step2Desc": "We review your order and reach out within 24 hours via WhatsApp or email to confirm details and provide your final quote.",
+    "step3Number": "03",
+    "step3Title": "We Build & Deliver",
+    "step3Desc": "Our craftsmen handcraft your table to exact specifications. Once ready, we deliver directly to your door.",
+    "cta": "Start Designing"
+  },
+  "whyUs": {
+    "title": "Why Choose Us",
+    "subtitle": "Every table is a work of art. Here's what sets us apart.",
+    "card1Title": "100% Handcrafted",
+    "card1Desc": "Every table is built by hand, one at a time. No mass production — just skilled craftsmanship.",
+    "card2Title": "Fully Customizable",
+    "card2Desc": "Choose every detail: felt color, wood type, leg finish, cup holders, LED lights, and your own logo.",
+    "card3Title": "Made in Dominican Republic",
+    "card3Desc": "Proudly built with Dominican craftsmanship, using quality materials sourced locally and internationally.",
+    "card4Title": "Door-to-Door Delivery",
+    "card4Desc": "We handle everything — your table arrives safely packaged, anywhere in the country."
+  },
+  "testimonials": {
+    "title": "What Our Customers Say",
+    "subtitle": "Real stories from domino enthusiasts across the country.",
+    "t1Quote": "The quality is unmatched. My table arrived perfectly finished and the green felt is exactly what I wanted. My whole family loves it.",
+    "t1Name": "Carlos M.",
+    "t1Location": "Santo Domingo",
+    "t2Quote": "I added my business logo to the surface and it looks incredible. Very professional, great communication throughout.",
+    "t2Name": "María L.",
+    "t2Location": "Santiago",
+    "t3Quote": "Ordered walnut wood with black legs — it looks like something from a high-end store. Worth every penny.",
+    "t3Name": "Roberto P.",
+    "t3Location": "La Romana"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know before you order.",
+    "q1": "What materials is the table made from?",
+    "a1": "We use solid wood (oak, walnut, or mahogany) for the frame and legs, and high-quality billiard felt for the playing surface. All materials are selected for durability and aesthetics.",
+    "q2": "How long does it take to build?",
+    "a2": "Each table takes approximately 7–14 business days to complete, depending on the customization options selected.",
+    "q3": "Do you deliver anywhere in the country?",
+    "a3": "Yes! We deliver nationwide. Shipping costs and times vary by location — we'll confirm these when we contact you after your order.",
+    "q4": "Can I add my own logo or design to the surface?",
+    "a4": "Absolutely. You can upload any image (PNG, JPG, or SVG with transparent background) directly in the 3D configurator, and it will be printed or applied to the felt surface.",
+    "q5": "What payment methods do you accept?",
+    "a5": "We accept bank transfers, cash on delivery, and major credit/debit cards. Full payment or a 50% deposit is required to begin production.",
+    "q6": "Do the tables come with a warranty?",
+    "a6": "Yes — all tables come with a 1-year warranty covering manufacturing defects in the frame and materials."
+  },
   "customizer": {
+    "back": "Back to home",
     "title": "Design Your Table",
-    "subtitle": "Rotate the 3D model to see every angle. Customize each detail in real time.",
+    "subtitle": "Rotate the 3D model to see every angle. Every change updates in real time.",
     "felt": "Felt Color",
     "wood": "Wood Finish",
     "legs": "Leg Color",
@@ -57,7 +114,8 @@
   },
   "gallery": {
     "title": "Finished Tables",
-    "subtitle": "Every table is handcrafted with premium materials. Here are some of our completed builds."
+    "subtitle": "Every table is handcrafted with premium materials. Here are some of our completed builds.",
+    "cta": "Design a Table Like This"
   },
   "contact": {
     "title": "Ready to Order?",
@@ -74,6 +132,7 @@
   },
   "footer": {
     "tagline": "Premium handcrafted domino tables.",
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "links": "Quick Links"
   }
 }

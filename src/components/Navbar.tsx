@@ -29,6 +29,8 @@ export default function Navbar() {
     router.push(segments.join('/') || `/${next}`)
   }
 
+  const isCustomizePage = pathname.includes('/customize')
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -44,27 +46,46 @@ export default function Navbar() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
-          {[
-            { label: t('customize'), id: 'customize' },
-            { label: t('gallery'), id: 'gallery' },
-            { label: t('contact'), id: 'contact' },
-          ].map(({ label, id }) => (
-            <button
-              key={id}
-              onClick={() => scrollTo(id)}
-              className="text-sm text-zinc-300 hover:text-white transition-colors"
-            >
-              {label}
-            </button>
-          ))}
+          <Link
+            href={`/${locale}/customize`}
+            className="text-sm text-zinc-300 hover:text-white transition-colors"
+          >
+            {t('customize')}
+          </Link>
+          {!isCustomizePage && (
+            <>
+              <button
+                onClick={() => scrollTo('gallery')}
+                className="text-sm text-zinc-300 hover:text-white transition-colors"
+              >
+                {t('gallery')}
+              </button>
+              <button
+                onClick={() => scrollTo('contact')}
+                className="text-sm text-zinc-300 hover:text-white transition-colors"
+              >
+                {t('contact')}
+              </button>
+            </>
+          )}
         </nav>
 
-        <button
-          onClick={toggleLocale}
-          className="text-xs font-semibold px-3 py-1.5 rounded-lg border border-zinc-600 text-zinc-300 hover:text-white hover:border-zinc-400 transition-all"
-        >
-          {locale === 'en' ? 'ES' : 'EN'}
-        </button>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={toggleLocale}
+            className="text-xs font-semibold px-3 py-1.5 rounded-lg border border-zinc-600 text-zinc-300 hover:text-white hover:border-zinc-400 transition-all"
+          >
+            {locale === 'en' ? 'ES' : 'EN'}
+          </button>
+
+          {/* Mobile: customize CTA */}
+          <Link
+            href={`/${locale}/customize`}
+            className="md:hidden text-xs font-semibold px-3 py-1.5 rounded-lg bg-brand-gold text-zinc-900 hover:bg-yellow-400 transition-colors"
+          >
+            {t('customize')}
+          </Link>
+        </div>
       </div>
     </header>
   )
