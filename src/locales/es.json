@@ -91,11 +91,26 @@
     "contactBtn": "Ordenar Esta Mesa",
     "resetBtn": "Restablecer",
     "rotate": "Arrastra para rotar · Scroll para zoom",
+    "engraving": "Estilo de Grabado",
+    "engravingOptions": {
+      "none": "Ninguno",
+      "classic": "Clásico",
+      "modern": "Moderno",
+      "traditional": "Tradicional",
+      "premium": "Premium"
+    },
+    "addToCart": "Agregar al Carrito",
+    "price": "$1,699.00 USD",
+    "badge1": "Artesanal en República Dominicana",
+    "badge2": "Materiales Premium de Calidad",
+    "badge3": "Envío Mundial · Entrega Segura",
+    "view2d": "2D",
+    "view3d": "3D",
     "woodOptions": {
-      "oak": "Roble",
-      "walnut": "Nogal",
-      "mahogany": "Caoba",
-      "black": "Negro Pintado"
+      "oak": "Roble Claro",
+      "walnut": "Nogal Oscuro",
+      "mahogany": "Caoba Dominicana",
+      "black": "Nogal Negro"
     },
     "feltOptions": {
       "green": "Verde",
@@ -103,7 +118,10 @@
       "red": "Rojo",
       "burgundy": "Burdeos",
       "black": "Negro",
-      "gray": "Gris"
+      "gray": "Gris",
+      "navy": "Marino",
+      "teal": "Turquesa",
+      "maroon": "Granate"
     },
     "legOptions": {
       "match-wood": "Igual a la Madera",

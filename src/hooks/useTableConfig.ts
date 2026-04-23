@@ -1,7 +1,7 @@
 'use client'
 
 import { create } from 'zustand'
-import { TableConfig, DEFAULT_CONFIG } from '@/types/table'
+import { TableConfig, EngravingStyle, DEFAULT_CONFIG } from '@/types/table'
 
 interface TableConfigStore {
   config: TableConfig
@@ -9,6 +9,7 @@ interface TableConfigStore {
   setWood: (wood: TableConfig['wood']) => void
   setLegColor: (legColor: TableConfig['legColor']) => void
   setLogoUrl: (url: string | null) => void
+  setEngravingStyle: (style: EngravingStyle) => void
   setAccessory: <K extends keyof TableConfig['accessories']>(
     key: K,
     value: TableConfig['accessories'][K]
@@ -22,6 +23,7 @@ export const useTableConfig = create<TableConfigStore>((set) => ({
   setWood: (wood) => set((s) => ({ config: { ...s.config, wood } })),
   setLegColor: (legColor) => set((s) => ({ config: { ...s.config, legColor } })),
   setLogoUrl: (logoUrl) => set((s) => ({ config: { ...s.config, logoUrl } })),
+  setEngravingStyle: (engravingStyle) => set((s) => ({ config: { ...s.config, engravingStyle } })),
   setAccessory: (key, value) =>
     set((s) => ({
       config: {

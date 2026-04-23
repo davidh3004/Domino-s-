@@ -91,11 +91,26 @@
     "contactBtn": "Order This Table",
     "resetBtn": "Reset",
     "rotate": "Drag to rotate · Scroll to zoom",
+    "engraving": "Engraving Style",
+    "engravingOptions": {
+      "none": "None",
+      "classic": "Classic",
+      "modern": "Modern",
+      "traditional": "Traditional",
+      "premium": "Premium"
+    },
+    "addToCart": "Add to Cart",
+    "price": "$1,699.00 USD",
+    "badge1": "Handcrafted in Dominican Republic",
+    "badge2": "Premium Materials Built to Last",
+    "badge3": "Worldwide Shipping · Secure Delivery",
+    "view2d": "2D",
+    "view3d": "3D",
     "woodOptions": {
-      "oak": "Oak",
-      "walnut": "Walnut",
-      "mahogany": "Mahogany",
-      "black": "Painted Black"
+      "oak": "Light Oak",
+      "walnut": "Dark Walnut",
+      "mahogany": "Dominican Mahogany",
+      "black": "Black Walnut"
     },
     "feltOptions": {
       "green": "Green",
@@ -103,7 +118,10 @@
       "red": "Red",
       "burgundy": "Burgundy",
       "black": "Black",
-      "gray": "Gray"
+      "gray": "Gray",
+      "navy": "Navy",
+      "teal": "Teal",
+      "maroon": "Maroon"
     },
     "legOptions": {
       "match-wood": "Match Wood",

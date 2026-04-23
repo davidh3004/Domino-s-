@@ -1,12 +1,14 @@
 export type WoodPreset = 'oak' | 'walnut' | 'mahogany' | 'black'
-export type FeltColor = 'green' | 'blue' | 'red' | 'burgundy' | 'black' | 'gray'
+export type FeltColor = 'green' | 'blue' | 'red' | 'burgundy' | 'black' | 'gray' | 'navy' | 'teal' | 'maroon'
 export type LegColor = 'match-wood' | 'black' | 'white' | 'chrome'
+export type EngravingStyle = 'none' | 'classic' | 'modern' | 'traditional' | 'premium'
 
 export interface TableConfig {
   felt: FeltColor
   wood: WoodPreset
   legColor: LegColor
   logoUrl: string | null
+  engravingStyle: EngravingStyle
   accessories: {
     cupHolders: boolean
     leds: boolean
@@ -29,6 +31,9 @@ export const FELT_COLORS: Record<FeltColor, string> = {
   burgundy: '#6E2C49',
   black: '#1C1C1C',
   gray: '#616A6B',
+  navy: '#0A2342',
+  teal: '#1A5C5C',
+  maroon: '#5C0A1A',
 }
 
 export const LEG_COLORS: Record<LegColor, string> = {
@@ -43,6 +48,7 @@ export const DEFAULT_CONFIG: TableConfig = {
   wood: 'walnut',
   legColor: 'match-wood',
   logoUrl: null,
+  engravingStyle: 'none',
   accessories: {
     cupHolders: true,
     leds: false,

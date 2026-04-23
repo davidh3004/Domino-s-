@@ -2,7 +2,7 @@
 
 import { useRef, useMemo, useEffect, useState } from 'react'
 import * as THREE from 'three'
-import { TableConfig, WOOD_COLORS, FELT_COLORS, LEG_COLORS } from '@/types/table'
+import { TableConfig, WOOD_COLORS, FELT_COLORS, LEG_COLORS, EngravingStyle } from '@/types/table'
 
 const TABLE_SIZE = 2.4
 const BORDER_W = 0.34
@@ -20,14 +20,9 @@ function createWoodTexture(hex: string): THREE.CanvasTexture {
   canvas.height = size
   const ctx = canvas.getContext('2d')!
 
-  const r = parseInt(hex.slice(1, 3), 16)
-  const g = parseInt(hex.slice(3, 5), 16)
-  const b = parseInt(hex.slice(5, 7), 16)
-
   ctx.fillStyle = hex
   ctx.fillRect(0, 0, size, size)
 
-  // Subtle cross-grain gradient for depth
   const grad = ctx.createLinearGradient(0, 0, size * 0.8, 0)
   grad.addColorStop(0, `rgba(255,255,255,0.09)`)
   grad.addColorStop(0.45, `rgba(0,0,0,0.07)`)
@@ -35,7 +30,6 @@ function createWoodTexture(hex: string): THREE.CanvasTexture {
   ctx.fillStyle = grad
   ctx.fillRect(0, 0, size, size)
 
-  // Grain lines running along the Y axis
   for (let i = 0; i < 65; i++) {
     const x = (i / 65) * size + (Math.random() - 0.5) * (size / 65) * 1.8
     const lineWidth = 0.3 + Math.random() * 2.8
@@ -53,7 +47,6 @@ function createWoodTexture(hex: string): THREE.CanvasTexture {
     ctx.stroke()
   }
 
-  // Occasional knot rings (0 or 1)
   if (Math.random() > 0.45) {
     const kx = 0.2 * size + Math.random() * 0.6 * size
     const ky = 0.2 * size + Math.random() * 0.6 * size
@@ -71,6 +64,124 @@ function createWoodTexture(hex: string): THREE.CanvasTexture {
   tex.wrapS = THREE.RepeatWrapping
   tex.wrapT = THREE.RepeatWrapping
   tex.repeat.set(1, 2.2)
+  return tex
+}
+
+function createEngravingTexture(feltHex: string, style: EngravingStyle): THREE.CanvasTexture | null {
+  if (style === 'none') return null
+  const size = 1024
+  const canvas = document.createElement('canvas')
+  canvas.width = size
+  canvas.height = size
+  const ctx = canvas.getContext('2d')!
+
+  // transparent base
+  ctx.clearRect(0, 0, size, size)
+
+  const r = parseInt(feltHex.slice(1, 3), 16)
+  const g = parseInt(feltHex.slice(3, 5), 16)
+  const b = parseInt(feltHex.slice(5, 7), 16)
+  const lightLine = `rgba(${Math.min(r + 60, 255)},${Math.min(g + 60, 255)},${Math.min(b + 60, 255)},0.22)`
+  const darkLine = `rgba(${Math.max(r - 30, 0)},${Math.max(g - 30, 0)},${Math.max(b - 30, 0)},0.18)`
+
+  ctx.strokeStyle = lightLine
+  ctx.lineWidth = 1.5
+
+  if (style === 'classic') {
+    // Diamond grid: 45° rotated lines
+    const step = 64
+    for (let i = -size; i < size * 2; i += step) {
+      ctx.beginPath()
+      ctx.moveTo(i, 0)
+      ctx.lineTo(i + size, size)
+      ctx.stroke()
+      ctx.beginPath()
+      ctx.moveTo(i, 0)
+      ctx.lineTo(i - size, size)
+      ctx.stroke()
+    }
+  } else if (style === 'modern') {
+    // Border inset rectangle + corner L-brackets
+    const pad = 60
+    const bpad = 90
+    ctx.strokeStyle = lightLine
+    ctx.lineWidth = 3
+    ctx.strokeRect(pad, pad, size - pad * 2, size - pad * 2)
+    ctx.strokeStyle = darkLine
+    ctx.lineWidth = 1.5
+    ctx.strokeRect(bpad, bpad, size - bpad * 2, size - bpad * 2)
+    // Corner L-shapes
+    const arm = 70
+    const corners = [
+      [pad - 2, pad - 2, 1, 1],
+      [size - pad + 2, pad - 2, -1, 1],
+      [pad - 2, size - pad + 2, 1, -1],
+      [size - pad + 2, size - pad + 2, -1, -1],
+    ]
+    ctx.strokeStyle = lightLine
+    ctx.lineWidth = 4
+    for (const [cx, cy, dx, dy] of corners) {
+      ctx.beginPath()
+      ctx.moveTo(cx + dx * arm, cy)
+      ctx.lineTo(cx, cy)
+      ctx.lineTo(cx, cy + dy * arm)
+      ctx.stroke()
+    }
+  } else if (style === 'traditional') {
+    // Decorative bezier corner motifs
+    ctx.strokeStyle = lightLine
+    ctx.lineWidth = 2
+    const corners2 = [
+      [0, 0, 1, 1],
+      [size, 0, -1, 1],
+      [0, size, 1, -1],
+      [size, size, -1, -1],
+    ]
+    for (const [ox, oy, sx, sy] of corners2) {
+      for (let arc = 0; arc < 4; arc++) {
+        const r2 = 100 + arc * 55
+        ctx.beginPath()
+        ctx.moveTo(ox + sx * r2, oy)
+        ctx.bezierCurveTo(
+          ox + sx * r2 * 0.6, oy + sy * r2 * 0.2,
+          ox + sx * r2 * 0.2, oy + sy * r2 * 0.6,
+          ox, oy + sy * r2
+        )
+        ctx.stroke()
+      }
+    }
+    // Center medallion
+    ctx.beginPath()
+    ctx.arc(size / 2, size / 2, 80, 0, Math.PI * 2)
+    ctx.stroke()
+    ctx.beginPath()
+    ctx.arc(size / 2, size / 2, 110, 0, Math.PI * 2)
+    ctx.stroke()
+  } else if (style === 'premium') {
+    // Herringbone weave
+    const step = 40
+    const w = 14
+    ctx.strokeStyle = lightLine
+    ctx.lineWidth = w
+    for (let row = -2; row < size / step + 2; row++) {
+      for (let col = -2; col < size / step + 2; col++) {
+        const x = col * step * 2
+        const y = row * step * 2 + (col % 2 === 0 ? 0 : step)
+        ctx.beginPath()
+        ctx.moveTo(x, y)
+        ctx.lineTo(x + step, y + step)
+        ctx.stroke()
+        ctx.beginPath()
+        ctx.moveTo(x + step, y)
+        ctx.lineTo(x, y + step)
+        ctx.stroke()
+      }
+    }
+  }
+
+  const tex = new THREE.CanvasTexture(canvas)
+  tex.wrapS = THREE.RepeatWrapping
+  tex.wrapT = THREE.RepeatWrapping
   return tex
 }
 
@@ -100,15 +211,55 @@ function CupHolder({
 }: { x: number; z: number; woodColor: string; woodTex: THREE.CanvasTexture | null }) {
   return (
     <group position={[x, BORDER_H / 2 + 0.001, z]}>
+      {/* Dark recess */}
       <mesh>
         <cylinderGeometry args={[CUP_R, CUP_R, CUP_R * 0.6, 32]} />
-        <meshStandardMaterial color="#080808" roughness={0.9} />
+        <meshStandardMaterial color="#050505" roughness={0.95} />
       </mesh>
+      {/* Wood outer rim */}
       <mesh>
-        <cylinderGeometry args={[CUP_R + 0.014, CUP_R + 0.014, 0.015, 32]} />
+        <cylinderGeometry args={[CUP_R + 0.018, CUP_R + 0.018, 0.016, 32]} />
         <WoodMaterial color={woodColor} tex={woodTex} roughness={0.38} clearcoat={0.95} />
       </mesh>
+      {/* Chrome inner ring (torus) */}
+      <mesh rotation={[Math.PI / 2, 0, 0]} position={[0, 0.006, 0]}>
+        <torusGeometry args={[CUP_R + 0.002, 0.008, 12, 48]} />
+        <meshPhysicalMaterial color="#d0d0d0" metalness={0.95} roughness={0.05} reflectivity={1} />
+      </mesh>
     </group>
+  )
+}
+
+function TileSlots({ side, woodColor, woodTex }: {
+  side: 'front' | 'back' | 'left' | 'right'
+  woodColor: string
+  woodTex: THREE.CanvasTexture | null
+}) {
+  const apronY = -(BORDER_H / 2 + APRON_H / 2)
+  const slotW = 0.22
+  const slotH = 0.10
+  const slotD = 0.022
+  const spacing = 0.32
+  const inset = 0.006
+
+  const isHorizontal = side === 'front' || side === 'back'
+  const sign = side === 'front' || side === 'right' ? -1 : 1
+  const apronFace = sign * (TABLE_SIZE / 2 - BORDER_W / 2 + BORDER_W / 2 - inset)
+
+  return (
+    <>
+      {[-spacing / 2, spacing / 2].map((offset, i) => {
+        const px = isHorizontal ? offset : apronFace
+        const pz = isHorizontal ? apronFace : offset
+        const rotY = isHorizontal ? 0 : Math.PI / 2
+        return (
+          <mesh key={i} position={[px, apronY, pz]} rotation={[0, rotY, 0]}>
+            <boxGeometry args={[slotW, slotH, slotD]} />
+            <meshStandardMaterial color="#0a0a0a" roughness={0.95} />
+          </mesh>
+        )
+      })}
+    </>
   )
 }
 
@@ -186,6 +337,11 @@ export default function DominoTable({ config }: { config: TableConfig }) {
     return createWoodTexture(woodColor)
   }, [woodColor])
 
+  const engravingTex = useMemo(() => {
+    if (typeof window === 'undefined') return null
+    return createEngravingTexture(feltColor, config.engravingStyle)
+  }, [feltColor, config.engravingStyle])
+
   const logoTexRef = useRef<THREE.Texture | null>(null)
   const [logoTex, setLogoTex] = useState<THREE.Texture | null>(null)
 
@@ -228,10 +384,18 @@ export default function DominoTable({ config }: { config: TableConfig }) {
         <meshStandardMaterial color={feltColor} roughness={0.96} metalness={0} />
       </mesh>
 
+      {/* Engraving overlay */}
+      {engravingTex && (
+        <mesh position={[0, SURFACE_DEPTH / 2 + 0.0005, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+          <planeGeometry args={[innerSize * 0.95, innerSize * 0.95]} />
+          <meshStandardMaterial map={engravingTex} transparent alphaTest={0.01} roughness={0.98} depthWrite={false} />
+        </mesh>
+      )}
+
       {/* Logo plane on felt */}
       {logoTex && (
         <mesh position={[0, SURFACE_DEPTH / 2 + 0.0008, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-          <planeGeometry args={[innerSize * 0.62, innerSize * 0.62]} />
+          <planeGeometry args={[innerSize * 0.52, innerSize * 0.52]} />
           <meshStandardMaterial map={logoTex} transparent alphaTest={0.05} roughness={0.9} depthWrite={false} />
         </mesh>
       )}
@@ -251,6 +415,12 @@ export default function DominoTable({ config }: { config: TableConfig }) {
           <WoodMaterial color={woodColor} tex={woodTex} roughness={0.5} clearcoat={0.6} />
         </mesh>
       ))}
+
+      {/* Tile holder slots on all 4 sides */}
+      <TileSlots side="front" woodColor={woodColor} woodTex={woodTex} />
+      <TileSlots side="back" woodColor={woodColor} woodTex={woodTex} />
+      <TileSlots side="left" woodColor={woodColor} woodTex={woodTex} />
+      <TileSlots side="right" woodColor={woodColor} woodTex={woodTex} />
 
       {/* Cup holders */}
       {config.accessories.cupHolders && (
